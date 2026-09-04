@@ -265,6 +265,16 @@
   letter-spacing: 1px;
 }
 
+.project-demo-note {
+  color: #39ff14;
+  font-size: 0.8rem;
+  font-family: 'Courier New', monospace;
+  background-color: rgba(57, 255, 20, 0.05);
+  border: 1px solid rgba(57, 255, 20, 0.2);
+  padding: 6px 12px;
+  border-radius: 4px;
+}
+
 /* Terminal Skills */
 .terminal {
   background-color: #0d0d0d;
