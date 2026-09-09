@@ -9,8 +9,24 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent implements AfterViewInit {
   title = 'portfolio';
+  typedText = '';
+  fullText = 'I build things for the web and beyond.';
 
   ngAfterViewInit() {
+    // Typing effect
+    let i = 0;
+    const typeInterval = setInterval(() => {
+      if (i < this.fullText.length) {
+        this.typedText += this.fullText.charAt(i);
+        const el = document.getElementById('typed-text');
+        if (el) el.textContent = this.typedText;
+        i++;
+      } else {
+        clearInterval(typeInterval);
+      }
+    }, 60);
+
+    // Matrix code
     const canvas = document.getElementById('matrix-canvas') as HTMLCanvasElement;
     const ctx = canvas.getContext('2d')!;
 
@@ -78,5 +94,18 @@ export class AppComponent implements AfterViewInit {
     }
 
     setInterval(draw, 40);
+
+    // Scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.project-card, .section-title, .about-text, .skill-category, .terminal').forEach(el => {
+      observer.observe(el);
+    });
   }
 }

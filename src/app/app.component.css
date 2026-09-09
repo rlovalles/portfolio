@@ -519,3 +519,29 @@
     grid-template-columns: 1fr;
   }
 }
+
+.cursor {
+  color: #39ff14;
+  animation: blink 1s infinite;
+  font-weight: 100;
+}
+
+/* Scroll Animations */
+.project-card,
+.section-title,
+.about-text,
+.skill-category,
+.terminal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.project-card.visible,
+.section-title.visible,
+.about-text.visible,
+.skill-category.visible,
+.terminal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
