@@ -1,9 +1,10 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -11,6 +12,39 @@ export class AppComponent implements AfterViewInit {
   title = 'portfolio';
   typedText = '';
   fullText = 'I build things for the web and beyond.';
+
+  // Hamburger Menu in Nav Bar
+  menuOpen = false;
+
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen;
+  }
+
+  closeMenu() {
+    this.menuOpen = false;
+  }
+
+  // projects carousel effect
+  currentSlide = 0;
+  totalProjects = 8;
+  projectDots = Array(this.totalProjects).fill(0);
+  slideWidth = 100;
+
+  nextSlide() {
+    if (this.currentSlide < this.totalProjects - 1) {
+      this.currentSlide++;
+    }
+  }
+
+  prevSlide() {
+    if (this.currentSlide > 0) {
+      this.currentSlide--;
+    }
+  }
+
+  goToSlide(index: number) {
+    this.currentSlide = index;
+  }
 
   ngAfterViewInit() {
     // Typing effect
@@ -109,3 +143,4 @@ export class AppComponent implements AfterViewInit {
     });
   }
 }
+

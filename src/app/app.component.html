@@ -12,13 +12,31 @@
       <a href="https://linkedin.com/in/rebovalles" target="_blank">
         <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" alt="LinkedIn" class="nav-icon"/>
       </a>
+      <a href="mailto:rebovalles@gmail.com">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/minutemailer.svg" alt="Email" class="nav-icon"/>
+      </a>
     </div>
   </div>
-  <div class="nav-links">
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#skills">Skills</a>
-    <a href="#contact">Contact</a>
+  <button class="hamburger" (click)="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <div class="nav-links" [class.open]="menuOpen">
+    <a href="#about" (click)="closeMenu()">about</a>
+    <a href="#projects" (click)="closeMenu()">projects</a>
+    <a href="#skills" (click)="closeMenu()">skills</a>
+    <div class="mobile-icons">
+      <a href="https://github.com/rlovalles" target="_blank">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg" alt="GitHub" class="nav-icon"/>
+      </a>
+      <a href="https://linkedin.com/in/rebovalles" target="_blank">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" alt="LinkedIn" class="nav-icon"/>
+      </a>
+      <a href="mailto:rebovalles@gmail.com">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/minutemailer.svg" alt="Email" class="nav-icon"/>
+      </a>
+    </div>
   </div>
 </nav>
 
@@ -29,14 +47,13 @@
     <h1 class="hero-name">Rebecca Ovalles.</h1>
     <h2 class="hero-title"><span id="typed-text"></span><span class="cursor">|</span></h2>
     <p class="hero-description">
-      Computer Science student at WGU graduating December 2026.
-      Currently working as a Software Developer while building full-stack
-      applications, containerizing with Docker, and deploying to
-      Kubernetes. Deliberately targeting defense and aerospace.
+      Software engineer and CS senior in Colorado Springs.
+      I build full-stack applications, containerizing with Docker,
+      and deploy to Kubernetes. I have a thing for clean code and good design.
+      If it works but looks terrible, that bothers me.
     </p>
     <div class="hero-buttons">
-      <a href="#projects" class="btn-primary">View My Work</a>
-      <a href="#contact" class="btn-secondary">Get In Touch</a>
+      <a href="mailto:rebovalles@gmail.com" class="btn-primary">Get In Touch</a>
     </div>
   </div>
   <div class="hero-image">
@@ -53,39 +70,32 @@
     <div class="about-content">
       <div class="about-text">
         <p>
-          I've always preferred learning by doing, which is why I chose WGU's model.
-          I wanted a degree focused on proving technical competency through building
-          real software, not just sitting in a lecture hall.
+          Finishing my B.S. in Computer Science at Western Governors University in December 2026.
+          I chose WGU because I wanted a degree built around proving what I can actually do,
+          not just passing exams.
         </p>
         <p>
-          Most of my time lately has been split between writing Java and Python,
-          debugging Docker containers, deploying Kubernetes clusters, and working through database architecture.
+          By day I'm a software engineer at RefiJet building
+          full-stack features and API integrations for fintech. By night
+          I'm usually working on something else entirely.
+        </p>
+        <p>
+          Tools I reach for:
         </p>
         <div class="about-details">
           <div class="detail-item">
-            <span class="accent">▹</span> Java & Spring Boot
+            <span class="accent">▹</span> Java
           </div>
           <div class="detail-item">
-            <span class="accent">▹</span> Python & Algorithms
+            <span class="accent">▹</span> Docker
           </div>
           <div class="detail-item">
-            <span class="accent">▹</span> Docker & Kubernetes
+            <span class="accent">▹</span> Angular
           </div>
           <div class="detail-item">
-            <span class="accent">▹</span> Angular & TypeScript
-          </div>
-          <div class="detail-item">
-            <span class="accent">▹</span> PostgreSQL & MySQL
-          </div>
-          <div class="detail-item">
-            <span class="accent">▹</span> Linux (LPI Certified)
+            <span class="accent">▹</span> PostgreSQL
           </div>
         </div>
-        <p>
-          I'm a U.S. citizen eligible for security clearance and graduating
-          December 2026 from Western Governors University with a B.S. in
-          Computer Science.
-        </p>
       </div>
     </div>
   </div>
@@ -94,8 +104,11 @@
 <!-- Projects Section -->
 <section class="projects" id="projects">
   <div class="section-container">
-    <h2 class="section-title"><span class="accent">//</span> projects</h2>
-    <div class="projects-grid">
+    <h2 class="section-title">// projects</h2>
+    <div class="carousel-wrapper">
+      <button class="carousel-btn prev" (click)="prevSlide()">&#8592;</button>
+      <div class="carousel-track-container">
+        <div class="carousel-track" [style.transform]="'translateX(-' + currentSlide * 100 + '%)'">
 
       <!-- Dark Phoenix -->
       <div class="project-card">
@@ -279,6 +292,16 @@
         </div>
       </div>
 
+        </div>
+      </div>
+      <button class="carousel-btn next" (click)="nextSlide()">&#8594;</button>
+    </div>
+    <div class="carousel-dots">
+      <span *ngFor="let dot of projectDots; let i = index"
+            class="dot"
+            [class.active]="i === currentSlide"
+            (click)="goToSlide(i)">
+      </span>
     </div>
   </div>
 </section>
@@ -326,23 +349,6 @@
         <p class="terminal-line"><span class="accent">✔</span> LPI Linux Essentials</p>
         <br>
         <p class="terminal-line"><span class="terminal-prompt">$</span> <span class="terminal-cursor">█</span></p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Contact Section -->
-<section class="contact" id="contact">
-  <div class="section-container">
-    <h2 class="section-title"><span class="accent">//</span> contact</h2>
-    <div class="contact-content">
-      <p class="contact-description">
-        Open to defense and aerospace opportunities in Colorado Springs.
-      </p>
-      <a href="mailto:rebovalles@gmail.com" class="btn-primary contact-btn">Say Hello</a>
-      <div class="contact-links">
-        <a href="https://linkedin.com/in/rebovalles" target="_blank">View Resume on LinkedIn</a>
-        <a href="https://github.com/rlovalles" target="_blank">GitHub</a>
       </div>
     </div>
   </div>
