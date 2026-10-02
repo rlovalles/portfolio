@@ -134,6 +134,13 @@
   .hero-image {
     order: -1;
   }
+
+  .carousel-track .project-card {
+    min-width: 100%;
+    min-height: unset;
+    height: auto;
+    padding: 24px;
+  }
 }
 
 /* Hero */
@@ -332,15 +339,13 @@
 }
 
 .carousel-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 16px;
   position: relative;
 }
 
 .carousel-track-container {
   overflow: hidden;
   width: 100%;
+  position: relative;
 }
 
 .carousel-track {
@@ -356,19 +361,31 @@
 }
 
 .carousel-btn {
-  background: none;
-  border: 1px solid #39ff14;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(13, 13, 13, 0.6);
+  border: none;
   color: #39ff14;
-  font-size: 1.2rem;
-  padding: 8px 14px;
+  font-size: 2.5rem;
   cursor: pointer;
-  border-radius: 4px;
+  z-index: 10;
+  padding: 8px 12px;
   transition: all 0.3s ease;
-  flex-shrink: 0;
+  line-height: 1;
 }
 
 .carousel-btn:hover {
-  background-color: rgba(57, 255, 20, 0.1);
+  color: #ffffff;
+  background: rgba(13, 13, 13, 0.9);
+}
+
+.carousel-btn.prev {
+  left: 0;
+}
+
+.carousel-btn.next {
+  right: 0;
 }
 
 .carousel-dots {

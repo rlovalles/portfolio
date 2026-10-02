@@ -106,9 +106,11 @@
   <div class="section-container">
     <h2 class="section-title">// projects</h2>
     <div class="carousel-wrapper">
-      <button class="carousel-btn prev" (click)="prevSlide()">&#8592;</button>
       <div class="carousel-track-container">
-        <div class="carousel-track" [style.transform]="'translateX(-' + currentSlide * 100 + '%)'">
+        <div class="carousel-track"
+             [style.transform]="'translateX(-' + currentSlide * 100 + '%)'"
+             (touchstart)="onTouchStart($event)"
+             (touchend)="onTouchEnd($event)">
 
       <!-- Dark Phoenix -->
       <div class="project-card">
@@ -293,15 +295,16 @@
       </div>
 
         </div>
+        <button class="carousel-btn prev" (click)="prevSlide()">&#8249;</button>
+        <button class="carousel-btn next" (click)="nextSlide()">&#8250;</button>
       </div>
-      <button class="carousel-btn next" (click)="nextSlide()">&#8594;</button>
-    </div>
-    <div class="carousel-dots">
-      <span *ngFor="let dot of projectDots; let i = index"
-            class="dot"
-            [class.active]="i === currentSlide"
-            (click)="goToSlide(i)">
-      </span>
+      <div class="carousel-dots">
+    <span *ngFor="let dot of projectDots; let i = index"
+          class="dot"
+          [class.active]="i === currentSlide"
+          (click)="goToSlide(i)">
+    </span>
+      </div>
     </div>
   </div>
 </section>

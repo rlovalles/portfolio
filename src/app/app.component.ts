@@ -12,9 +12,12 @@ export class AppComponent implements AfterViewInit {
   title = 'portfolio';
   typedText = '';
   fullText = 'I build things for the web and beyond.';
-
-  // Hamburger Menu in Nav Bar
   menuOpen = false;
+  currentSlide = 0;
+  totalProjects = 8;
+  projectDots = Array(this.totalProjects).fill(0);
+  slideWidth = 100;
+  touchStartX = 0;
 
   toggleMenu() {
     this.menuOpen = !this.menuOpen;
@@ -23,12 +26,6 @@ export class AppComponent implements AfterViewInit {
   closeMenu() {
     this.menuOpen = false;
   }
-
-  // projects carousel effect
-  currentSlide = 0;
-  totalProjects = 8;
-  projectDots = Array(this.totalProjects).fill(0);
-  slideWidth = 100;
 
   nextSlide() {
     if (this.currentSlide < this.totalProjects - 1) {
@@ -44,6 +41,20 @@ export class AppComponent implements AfterViewInit {
 
   goToSlide(index: number) {
     this.currentSlide = index;
+  }
+
+  onTouchStart(event: TouchEvent) {
+    this.touchStartX = event.touches[0].clientX;
+  }
+
+  onTouchEnd(event: TouchEvent) {
+    const touchEndX = event.changedTouches[0].clientX;
+    const diff = this.touchStartX - touchEndX;
+    if (diff > 50) {
+      this.nextSlide();
+    } else if (diff < -50) {
+      this.prevSlide();
+    }
   }
 
   ngAfterViewInit() {
