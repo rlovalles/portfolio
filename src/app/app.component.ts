@@ -14,7 +14,7 @@ export class AppComponent implements AfterViewInit {
   fullText = 'I build things for the web and beyond.';
   menuOpen = false;
   currentSlide = 0;
-  totalProjects = 8;
+  totalProjects = 9;
   projectDots = Array(this.totalProjects).fill(0);
   slideWidth = 100;
   touchStartX = 0;

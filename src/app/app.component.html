@@ -112,21 +112,44 @@
              (touchstart)="onTouchStart($event)"
              (touchend)="onTouchEnd($event)">
 
+
+      <!-- Gold Price Predictor -->
+      <a class="project-card capstone-card"
+        href="https://ovalles-gold-predictor.streamlit.app/"
+        target="_blank" rel="noopener">
+        <div class="project-header">
+          <h3 class="project-title">Intraday Gold Price Predictor</h3>
+          <span class="project-link-label">Live Demo</span>
+        </div>
+        <p class="project-description">
+          Built a Streamlit web app that predicts whether gold (XAU/USD) will move up or
+          down over the next 15-minute bar, using logistic regression on intraday market
+          data. Includes a dashboard with a line chart, histogram, and confusion matrix,
+          and is deployed on Streamlit Community Cloud.
+        </p>
+        <div class="project-tech">
+          <span>Python</span>
+          <span>Streamlit</span>
+          <span>scikit-learn</span>
+          <span>Logistic Regression</span>
+          <span>Data Visualization</span>
+        </div>
+      </a>
+
       <!-- Dark Phoenix -->
       <div class="project-card">
         <div class="project-header">
-          <span class="project-icon">🚀</span>
+          <h3 class="project-title">AI Video Clipping Platform</h3>
           <div class="project-links">
             <a href="https://dark-phoenix-deployment.vercel.app" target="_blank">Live Demo</a>
           </div>
         </div>
-        <h3 class="project-title">AI Video Clipping Platform</h3>
         <p class="project-description">
           Built and deployed a full AI-powered video clipping platform that takes a youtube URL and clips portions
           of the video into shorter videos formatted vertically for social media sites.
           Integrated five distributed cloud services into a working production pipeline.
         </p>
-        <p class="project-demo-note">🔑 Demo: rebecca&#64;test.com / darkphoenix123</p>
+        <p class="project-demo-note">Demo: rebecca&#64;test.com / darkphoenix123</p>
         <div class="project-tech">
           <span>Next.js 15</span>
           <span>Modal</span>
@@ -139,12 +162,11 @@
       <!-- Task Manager Kubernetes -->
       <div class="project-card">
         <div class="project-header">
-          <span class="project-icon">⚙️</span>
+          <h3 class="project-title">Task Manager API — Kubernetes Deployment</h3>
           <div class="project-links">
             <a href="https://github.com/rlovalles/task-manager-kubernetes" target="_blank">GitHub</a>
           </div>
         </div>
-        <h3 class="project-title">Task Manager API — Kubernetes Deployment</h3>
         <p class="project-description">
           Built and deployed a Spring Boot REST API to a Kubernetes cluster with 2 replicas
           for high availability. PostgreSQL runs as a separate Kubernetes service, all
@@ -163,11 +185,10 @@
       <!-- Travel Agency -->
       <div class="project-card">
         <div class="project-header">
-          <span class="project-icon">✈️</span>
+          <h3 class="project-title">Travel Agency Backend Migration</h3>
           <div class="project-links">
           </div>
         </div>
-        <h3 class="project-title">Travel Agency Backend Migration</h3>
         <p class="project-description">
           Migrated a legacy 1990s back-end to a modern Spring Boot framework,
           building REST controllers, JPA repositories, and a full service layer
@@ -185,12 +206,11 @@
       <!-- Landon Hotel -->
       <div class="project-card">
         <div class="project-header">
-          <span class="project-icon">🏨</span>
+          <h3 class="project-title">Full-Stack Booking App</h3>
           <div class="project-links">
             <a href="https://github.com/rlovalles/java-springboot-docker-fullstack" target="_blank">GitHub</a>
           </div>
         </div>
-        <h3 class="project-title">Full-Stack Booking App</h3>
         <p class="project-description">
           Built a containerized full-stack hotel booking application with Angular
           on the front end and Java/Spring Boot on the back end. Features
@@ -208,12 +228,11 @@
       <!-- DSA II -->
       <div class="project-card">
         <div class="project-header">
-          <span class="project-icon">📦</span>
+          <h3 class="project-title">Package Routing Simulation</h3>
           <div class="project-links">
             <a href="https://github.com/rlovalles" target="_blank">GitHub</a>
           </div>
         </div>
-        <h3 class="project-title">Package Routing Simulation</h3>
         <p class="project-description">
           Implemented a custom hash table from scratch and a nearest neighbor
           algorithm in Python to optimally route 40 packages across three trucks,
@@ -230,11 +249,10 @@
       <!-- PostgreSQL -->
       <div class="project-card">
         <div class="project-header">
-          <span class="project-icon">🗄️</span>
+          <h3 class="project-title">PostgreSQL DVD Rental Analytics Pipeline</h3>
           <div class="project-links">
           </div>
         </div>
-        <h3 class="project-title">PostgreSQL DVD Rental Analytics Pipeline</h3>
         <p class="project-description">
           Built a full analytics pipeline in PostgreSQL with a six-table extraction
           query, detail and summary tables, a user-defined function for transformation
@@ -252,11 +270,10 @@
       <!-- C++ -->
       <div class="project-card">
         <div class="project-header">
-          <span class="project-icon">💻</span>
+          <h3 class="project-title">C++ Student Roster Management System</h3>
           <div class="project-links">
           </div>
         </div>
-        <h3 class="project-title">C++ Student Roster Management System</h3>
         <p class="project-description">
           Built a student roster system in C++ using object-oriented design with
           accessor and mutator patterns, dynamic memory allocation, and destructor
@@ -273,11 +290,10 @@
       <!-- CoppeliaSim Robot -->
       <div class="project-card">
         <div class="project-header">
-          <span class="project-icon">🤖</span>
+          <h3 class="project-title">Disaster Relief Robot — CoppeliaSim Simulation</h3>
           <div class="project-links">
           </div>
         </div>
-        <h3 class="project-title">Disaster Relief Robot — CoppeliaSim Simulation</h3>
         <p class="project-description">
           Built an autonomous disaster relief robot prototype in CoppeliaSim featuring
           two proximity sensors for obstacle avoidance and survivor detection. The robot
@@ -295,8 +311,8 @@
       </div>
 
         </div>
-        <button class="carousel-btn prev" (click)="prevSlide()">&#8249;</button>
-        <button class="carousel-btn next" (click)="nextSlide()">&#8250;</button>
+        <button class="carousel-btn prev" *ngIf="currentSlide > 0" (click)="prevSlide()">&#8249;</button>
+        <button class="carousel-btn next" *ngIf="currentSlide < totalProjects - 1" (click)="nextSlide()">&#8250;</button>
       </div>
       <div class="carousel-dots">
     <span *ngFor="let dot of projectDots; let i = index"
@@ -315,10 +331,8 @@
     <h2 class="section-title"><span class="accent">//</span> skills</h2>
     <div class="terminal">
       <div class="terminal-header">
-        <span class="terminal-dot red"></span>
-        <span class="terminal-dot yellow"></span>
-        <span class="terminal-dot green"></span>
-        <span class="terminal-title">rebecca&#64;portfolio:~</span>
+        <span class="terminal-title">rebecca&#64;portfolio:~/skills$</span>
+        <span class="terminal-controls">&#8212; &nbsp; &#9633; &nbsp; &#10005;</span>
       </div>
       <div class="terminal-body">
         <p class="terminal-line"><span class="terminal-prompt">$</span> cat skills.txt</p>

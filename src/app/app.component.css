@@ -134,13 +134,6 @@
   .hero-image {
     order: -1;
   }
-
-  .carousel-track .project-card {
-    min-width: 100%;
-    min-height: unset;
-    height: auto;
-    padding: 24px;
-  }
 }
 
 /* Hero */
@@ -175,7 +168,7 @@
 }
 
 .hero-title {
-  font-size: 2.5rem;
+  font-size: 2rem;
   color: #8892b0;
   margin-bottom: 20px;
   line-height: 1.2;
@@ -331,6 +324,45 @@
   will-change: transform;
 }
 
+.capstone-card {
+  position: relative;
+  overflow: hidden;
+  color: inherit;
+  text-decoration: none;
+}
+
+.capstone-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('/gold-predictor.png') top center / cover no-repeat;
+  opacity: 0.00;
+  transition: opacity 0.4s ease;
+  z-index: 0;
+}
+
+.capstone-card:hover::before {
+  opacity: 1;
+}
+
+.capstone-card .project-title,
+.capstone-card .project-description,
+.capstone-card .project-tech {
+  transition: opacity 0.4s ease;
+}
+
+.capstone-card:hover .project-title,
+.capstone-card:hover .project-description,
+.capstone-card:hover .project-tech,
+.capstone-card:hover .project-link-label {
+  opacity: 0;
+}
+
+.capstone-card > * {
+  position: relative;
+  z-index: 1;
+}
+
 .project-card.visible:hover {
   transform: scale(1.07) translateY(-10px);
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
@@ -357,7 +389,6 @@
   min-width: 100%;
   box-sizing: border-box;
   padding: 40px;
-  min-height: 400px;
 }
 
 .carousel-btn {
@@ -414,10 +445,6 @@
   align-items: center;
 }
 
-.project-icon {
-  font-size: 1.8rem;
-}
-
 .project-links a {
   color: #8892b0;
   font-size: 0.85rem;
@@ -429,8 +456,14 @@
   text-decoration: none;
 }
 
+.project-link-label {
+  color: #8892b0;
+  font-size: 0.85rem;
+  transition: color 0.3s, opacity 0.4s ease;
+}
+
 .project-title {
-  color: #ffffff;
+  color: #8892b0;
   font-size: 1rem;
   font-weight: 600;
   line-height: 1.4;
@@ -455,6 +488,14 @@
   letter-spacing: 1px;
 }
 
+
+.project-tech::before {
+  content: '$';
+  color: #8892b0;
+  font-family: 'Courier New', monospace;
+  font-size: 0.75rem;
+}
+
 .project-demo-note {
   color: #39ff14;
   font-size: 0.8rem;
@@ -463,6 +504,30 @@
   border: 1px solid rgba(57, 255, 20, 0.2);
   padding: 6px 12px;
   border-radius: 4px;
+}
+
+.card-window {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.card-window i {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: block;
+}
+
+.card-window i:nth-child(1) { background-color: #ff5f57; }
+.card-window i:nth-child(2) { background-color: #febc2e; }
+.card-window i:nth-child(3) { background-color: #28c840; }
+
+.card-path {
+  margin-left: 8px;
+  color: #555;
+  font-family: 'Courier New', monospace;
+  font-size: 0.8rem;
 }
 
 /* Terminal Skills */
@@ -480,24 +545,19 @@
   padding: 12px 16px;
   display: flex;
   align-items: center;
-  gap: 8px;
+  justify-content: space-between;
 }
-
-.terminal-dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-}
-
-.terminal-dot.red { background-color: #ff5f57; }
-.terminal-dot.yellow { background-color: #febc2e; }
-.terminal-dot.green { background-color: #28c840; }
 
 .terminal-title {
   color: #8892b0;
   font-size: 0.8rem;
-  margin-left: 8px;
   font-family: monospace;
+}
+
+.terminal-controls {
+  color: #8892b0;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
 }
 
 .terminal-body {
@@ -618,9 +678,11 @@
   /* Hero */
   .hero {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: auto;
     padding: 100px 24px 60px 24px;
-    gap: 40px;
+    gap: 30px;
   }
 
   .hero-name {
@@ -628,7 +690,8 @@
   }
 
   .hero-title {
-    font-size: 1.4rem;
+    font-size: 4.2vw;
+    white-space: nowrap;
   }
 
   .hero-description {
@@ -673,6 +736,9 @@
   /* Carousel */
   .carousel-track .project-card {
     min-width: 100%;
+    min-height: unset;
+    height: auto;
+    padding: 24px;
   }
 
   /* Skills Terminal */
