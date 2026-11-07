@@ -19,5 +19,5 @@ I built my personal portfolio website with Angular which showcases my projects a
 - Smooth scroll navigation
 
 ## Contact
-- LinkedIn: [linkedin.com/in/rebovalles](https://linkedin.com/in/rebovalles)
+- LinkedIn: [linkedin.com/in/rebao](https://linkedin.com/in/rebao)
 - Email: [Email Me](mailto:rebovalles@gmail.com)

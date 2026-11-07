@@ -153,25 +153,16 @@
 }
 
 .hero-greeting {
-  color: #39ff14;
-  font-size: 1rem;
-  letter-spacing: 2px;
-  margin-bottom: 10px;
+  color: #ffffff;
 }
 
 .hero-name {
-  font-size: 4rem;
+  font-size: 3rem;
   font-weight: bold;
-  color: #ffffff;
+  color: #39ff14;
   margin-bottom: 10px;
   line-height: 1.1;
-}
-
-.hero-title {
-  font-size: 2rem;
-  color: #8892b0;
-  margin-bottom: 20px;
-  line-height: 1.2;
+  white-space: nowrap;
 }
 
 .hero-description {

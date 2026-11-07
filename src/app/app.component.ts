@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common';
 export class AppComponent implements AfterViewInit {
   title = 'portfolio';
   typedText = '';
-  fullText = 'I build things for the web and beyond.';
+  fullText = 'rebecca';
   menuOpen = false;
   currentSlide = 0;
   totalProjects = 9;
@@ -69,7 +69,7 @@ export class AppComponent implements AfterViewInit {
       } else {
         clearInterval(typeInterval);
       }
-    }, 60);
+    }, 120);
 
     // Matrix code
     const canvas = document.getElementById('matrix-canvas') as HTMLCanvasElement;
