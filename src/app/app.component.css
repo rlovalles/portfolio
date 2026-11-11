@@ -213,12 +213,14 @@
 /* Hero Image */
 .hero {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
+  gap: 60px;
 }
 
 .hero-image {
   flex-shrink: 0;
+  order: -1;
 }
 
 .image-wrapper {
