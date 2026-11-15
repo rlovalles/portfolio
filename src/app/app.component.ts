@@ -82,7 +82,7 @@ export class AppComponent implements AfterViewInit {
     setSize();
     window.addEventListener('resize', setSize);
 
-    const chars = '01アイウエオカキクケコ';
+    const chars = '01ㄱㄴㄷㄹㅁㅂㅅㅇㅈㅊㅋㅌㅍㅎㅏㅓㅗㅜㅡㅣ';
     const fontSize = 16;
 
     type Drop = {
